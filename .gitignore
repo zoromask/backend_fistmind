@@ -1,5 +1,4 @@
 syntax: glob
-Gemfile.lock
 log/*
 vendor/*
 tmp/*
