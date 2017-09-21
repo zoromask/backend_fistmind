@@ -1,0 +1,21 @@
+<h1>Listing users</h1>
+<%= link_to 'Add User', new_user_path, :class => 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <th><%= user.id %></th>
+      <td><%= user.username %></td>
+      <td><%= user.role %></td>
+      <td><%= link_to 'Edit', user_path(user) %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
