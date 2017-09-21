@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	end
 	# update user
 	def update
+		# debugger(user_params)
 		@user = User.find(params[:id])
 		if @user.update(user_params)
 			redirect_to @user
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
 	end
 	# save new user
 	def create
+		# debugger(user_params)
 		@user = User.new(user_params)
 		respond_to do |format|
 			if @user.save

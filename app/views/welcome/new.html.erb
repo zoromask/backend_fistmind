@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-3">
+			<%= link_to 'Back', listMessage_path, :class => 'btn btn-danger' %>
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th>Clients</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <% @users.each do |user| %>
+			    <tr>
+			      <td><%= link_to user.username, newMessage_path(user.id) %></td>
+			    </tr>
+			   <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-9">
+			Send message to <b><%= @username %></b>
+			<%= form_with scope: @receiver, url: saveMessage_path, local: true do |form| %>
+				<%= hidden_field_tag 'receiver', @receiverID  %>
+				<%= form.text_field :content, :type => 'text', :name => 'content', :class => 'form-control' %>
+				<%= form.submit "Send", :class => 'btn btn-primary', :disabled => (@receiverID == 0 ? true : false) %>
+			<% end %>
+		</div>
+	</div>
+</div>

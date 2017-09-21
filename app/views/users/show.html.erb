@@ -11,13 +11,13 @@
     <legend>Role</legend>
     <div class="form-check">
     	<label class="form-check-label">
-        <%= form.radio_button :role, '2', :class => 'form-check-input' %>
+        <%= radio_button_tag :role, '2', (@user.role == 2 ? true : false), class: 'form-check-input' %>
         Trainer
       	</label>
     </div>
     <div class="form-check">
     	<label class="form-check-label">
-        <%= form.radio_button :role, '3', :class => 'form-check-input' %>
+        <%= radio_button_tag :role, '3', (@user.role == 3 ? true : false), class: 'form-check-input' %>
         User
       	</label>
     </div>
